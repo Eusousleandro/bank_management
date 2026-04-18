@@ -6,9 +6,9 @@ from dotenv import load_dotenv
 load_dotenv()
 
 DATABASE_URL = os.getenv('DATABASE_URL')
-print('Conexão com banco de dados bem sucedida'
-      if DATABASE_URL else 'Falha na conexão com banco de dado')
+if not DATABASE_URL:
+      raise ValueError('DATABASE_URL not found')
 
 engine = create_engine(DATABASE_URL)
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
-Base = declarative_base
+Base = declarative_base()
