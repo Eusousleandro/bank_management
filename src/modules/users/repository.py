@@ -28,6 +28,7 @@ class UserRepository:
         
         db.commit()
         db.refresh(user_update)
+        return user_update
 
     def delete_user(db: Session, id: int):
         user_delete = db.query(User).filter(User.id == id)
