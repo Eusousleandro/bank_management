@@ -1,4 +1,4 @@
-from pydantic import BaseModel
+from pydantic import BaseModel, ConfigDict
 
 
 class WithdrawalBase(BaseModel):
@@ -12,3 +12,5 @@ class WithdrawalUpdate(BaseModel):
 
 class WithdrawalResponse(BaseModel):
     pass
+
+model_config = ConfigDict(from_attributes=True)
