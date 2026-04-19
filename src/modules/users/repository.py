@@ -1,4 +1,4 @@
-from sqlalchemy import Session
+from sqlalchemy.orm import Session
 from modules.users.model import User
 from modules.users.schema import UserUpdate
 

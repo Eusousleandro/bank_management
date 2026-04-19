@@ -1,12 +1,12 @@
-from fastapi import HTTPException
-from sqlalchemy import Session
+from fastapi import HTTPException, Depends
+from sqlalchemy.orm import Session
 from core.security.security import hash_password
 from modules.users.mapper import to_user_response
 from modules.users.repository import UserRepository
 from modules.users.schema import UserBase, UserCreate
 
 class UserService:
-    def __init__(self, repository: UserRepository):
+    def __init__(self, repository: UserRepository = Depends()):
         self.repository = repository
 
     async def get_users(self, db: Session):
