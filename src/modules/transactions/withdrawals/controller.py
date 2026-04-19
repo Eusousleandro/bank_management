@@ -7,7 +7,7 @@ from modules.transactions.withdrawals.schema import WithdrawalCreate, Withdrawal
 from modules.transactions.withdrawals.service import WithdrawalService
 from shared.dependencies import get_db
 
-router = APIRouter(prefix='withdrawal', tags=['Withdrawal'])
+router = APIRouter(prefix='/withdrawal', tags=['Withdrawal'])
 
 @router.get('/', response_model=List[WithdrawalResponse])
 async def get_withdrawal(

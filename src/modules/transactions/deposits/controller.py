@@ -7,7 +7,7 @@ from modules.transactions.deposits.schema import DepositCreate, DepositResponse
 from modules.transactions.deposits.service import DepositService
 from shared.dependencies import get_db
 
-router = APIRouter(prefix='deposits', tags=['Deposits'])
+router = APIRouter(prefix='/deposits', tags=['Deposits'])
 
 @router.get('/', response_model=List[DepositResponse])
 async def get_deposits(
