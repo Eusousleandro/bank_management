@@ -13,4 +13,9 @@ class UserUpdate(UserBase):
     cpf: str | None
     password: str | None
 
+class UserResponse(BaseModel):
+    id: int
+    name: str
+    email: str
+
 model_config = ConfigDict(from_attributes=True)

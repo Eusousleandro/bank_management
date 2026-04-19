@@ -2,10 +2,9 @@ from typing import List
 from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 from modules.users.service import UserService
-from modules.users.schema import UserCreate, UserUpdate
+from modules.users.schema import UserCreate, UserUpdate, UserResponse
 from core.auth.auth import get_current_user
 from shared.dependencies import get_db
-from shared.user_response import UserResponse
 
 router = APIRouter(prefix='/users', tags=['Users'])
 
