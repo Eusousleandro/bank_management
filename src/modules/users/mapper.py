@@ -6,4 +6,6 @@ def to_user_response(user: User) -> UserResponse:
             id=user.id,
             name=user.name,
             email=user.email,
+            amount=user.amount,
+            created=user.created_at
         )
