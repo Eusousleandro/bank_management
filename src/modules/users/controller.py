@@ -7,7 +7,6 @@ from core.auth.auth import get_current_user
 from shared.dependencies import get_db
 from shared.user_response import UserResponse
 
-
 router = APIRouter(prefix='/users', tags=['Users'])
 
 @router.get('/',  response_model=List[UserResponse])
