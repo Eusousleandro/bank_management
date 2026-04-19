@@ -28,10 +28,10 @@ async def get_deposit_id(
     
     return await service.get_deposit_id(db=db, id=id)
 
-@router.post('')
+@router.post('/')
 async def create_deposit(
+    deposit: DepositCreate,
     db: Session = Depends(get_db),
-    deposit: DepositCreate = Depends(),
     current_user = Depends(get_current_user),
     service: DepositService = Depends()
 ):

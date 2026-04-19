@@ -11,8 +11,8 @@ class WithdrawalRepository:
     def get_withdrawal_id(db: Session, id: int):
         return db.query(Withdrawal).filter(Withdrawal.id == id).first()
     
-    def get_withdrawal_balance(db: Session, balance: Withdrawal):
-        return db.query(Withdrawal).filter(Withdrawal.balance == balance)
+    def get_withdrawal_balance(db: Session):
+        return db.query(Withdrawal).all()
 
     def create_withdrawal(db: Session, withdrawal: Withdrawal):
         new_withdrawal = Withdrawal(**withdrawal.dict())

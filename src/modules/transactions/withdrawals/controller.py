@@ -26,11 +26,11 @@ async def get_withdrawal_id(
 ):
     return await service.get_withdrawal_id(db=db, id=id)
 
-@router.post('')
+@router.post('/')
 async def withdrawal_create(
+    withdrawal: WithdrawalCreate,
     db: Session =  Depends(get_db),
-    withdrawal: WithdrawalCreate = Depends(),
     current_user = Depends(get_current_user),
-    service: WithdrawalService = Depends
+    service: WithdrawalService = Depends()
 ):
     return await service.create_withdrawal(db=db, withdrawal=withdrawal)
