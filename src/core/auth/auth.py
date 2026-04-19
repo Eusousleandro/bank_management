@@ -21,7 +21,7 @@ def get_current_user(token: str = Depends(oauth2_scheme)):
 
 def create_access_token(data: dict):
     to_encode = data.copy()
-    expire = datetime.now(timezone.utc()) + timedelta(minutes=ACCESS_TOKEN_MINUTES)
+    expire = datetime.now(timezone.utc) + timedelta(minutes=ACCESS_TOKEN_MINUTES)
     to_encode.update({'exp': expire})
     token = jwt.encode(to_encode, SECRET_KEY, algorithm=ALGORITHM)
     return token

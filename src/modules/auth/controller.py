@@ -8,14 +8,18 @@ from shared.dependencies import get_db
 
 router = APIRouter(prefix='/auth', tags=['Authentication'])
 
-@router.post('', response_model=TokenResponse)
+@router.post('/login', response_model=TokenResponse)
 async def login(
     db: Session = Depends(get_db),
+    data: OAuth2PasswordRequestForm = Depends(),
     service: LoginService = Depends()
 ):
+    
     login = Login(
-        
-    )
-    return await service.auth_user(db=db, login=login)
+            cpf=data.username,
+            password=data.password
+        )
+    
+    return await service.auth_user(db, login=login)
 
 

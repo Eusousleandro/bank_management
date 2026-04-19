@@ -17,7 +17,7 @@ class UserUpdate(UserBase):
 class UserResponse(BaseModel):
     id: int
     name: str
-    email: str
-    balance: float
+    cpf: str
+    amount: float
 
 model_config = ConfigDict(from_attributes=True)

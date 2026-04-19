@@ -16,7 +16,7 @@ async def get_deposits(
     service: DepositService = Depends()
 ):
     
-    return await service.get_deposits(db=db)
+    return await service.get_deposits(db)
 
 @router.get('/{id}', response_model=DepositResponse)
 async def get_deposit_id(

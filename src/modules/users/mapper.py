@@ -5,7 +5,7 @@ def to_user_response(user: User) -> UserResponse:
     return UserResponse(
             id=user.id,
             name=user.name,
-            email=user.email,
+            cpf=user.cpf,
             amount=user.amount,
             created=user.created_at
         )

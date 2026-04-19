@@ -3,23 +3,23 @@ from modules.users.model import User
 from modules.users.schema import UserUpdate
 
 class UserRepository:
-    def get_users(db: Session):
+    async def get_users(self, db: Session):
         return db.query(User).all()
 
-    def get_user_id(db: Session, id: int):
+    async def get_user_id(self, db: Session, id: int):
         return db.query(User).filter(User.id == id).first()
 
-    def get_user_cpf(db: Session, cpf: str):
+    async def get_user_cpf(self, db: Session, cpf: str):
         return db.query(User).filter(User.cpf == cpf).first()
 
-    def create_user(db: Session, user: User):
+    async def create_user(self, db: Session, user: User):
         new_user = User(**user.dict())
         db.add(new_user)
         db.commit()
         db.refresh(new_user)
         return new_user
 
-    def update_user(db: Session, user: UserUpdate):
+    async def update_user(db: Session, user: UserUpdate):
         user_update = db.query(User).filter(User.id == id)
         user_data = user.model_dump(exclude_unset=True)
 
@@ -30,7 +30,7 @@ class UserRepository:
         db.refresh(user_update)
         return user_update
 
-    def delete_user(db: Session, id: int):
+    async def delete_user(db: Session, id: int):
         user_delete = db.query(User).filter(User.id == id)
         db.delete(user_delete)
         db.commit()

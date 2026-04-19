@@ -3,7 +3,7 @@ from fastapi import APIRouter, Depends
 from sqlalchemy.orm import Session
 
 from core.auth.auth import get_current_user
-from modules.transactions.withdrawals.schema import WithdrawalCreate, WithdrawalResponse, WithdrawalUpdate
+from modules.transactions.withdrawals.schema import WithdrawalCreate, WithdrawalResponse
 from modules.transactions.withdrawals.service import WithdrawalService
 from shared.dependencies import get_db
 
@@ -15,7 +15,7 @@ async def get_withdrawal(
     current_user = Depends(get_current_user),
     service: WithdrawalService = Depends()
 ):
-    return await service.get_withdrawals(db=db)
+    return await service.get_withdrawals(db)
 
 @router.get('/{id}', response_model=WithdrawalResponse)
 async def get_withdrawal_id(
