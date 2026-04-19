@@ -1,4 +1,4 @@
-from sqlalchemy import TIMESTAMP, Column, Integer, Numeric, String
+from sqlalchemy import TIMESTAMP, Column, Integer, Numeric, String, func
 from core.database.session import Base
 
 class Deposit(Base):
@@ -6,5 +6,6 @@ class Deposit(Base):
 
     id = Column(Integer, primary_key=True, index=True)
     user_id = Column(Integer, nullable=False)
+    name = Column(String(250), nullable=False)
     amount = Column(Numeric(10, 2), nullable=False)
-    timestamp = Column(TIMESTAMP(timezone=True), default=function.now())
+    timestamp = Column(TIMESTAMP(timezone=True), default=func.now())

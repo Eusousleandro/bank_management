@@ -1,4 +1,4 @@
-from sqlalchemy import Column, Integer, Numeric, String, TIMESTAMP
+from sqlalchemy import Column, Integer, Numeric, String, TIMESTAMP, func
 from core.database.session import Base
 
 class User(Base):
@@ -9,4 +9,4 @@ class User(Base):
     cpf = Column(String(11), unique=True, index=True, nullable=False)
     password = Column(String(50), nullable=False) 
     amount = Column(Numeric(10, 2), nullable=False)
-    created_at = Column(TIMESTAMP(timezone=True), default=function.now())
+    created_at = Column(TIMESTAMP(timezone=True), default=func.now())
