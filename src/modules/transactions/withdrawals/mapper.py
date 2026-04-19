@@ -5,6 +5,7 @@ def to_withdrawal_response(withdrawal: Withdrawal) -> WithdrawalResponse:
     return WithdrawalResponse (
         id=withdrawal.id,
         user=withdrawal.user_id,
+        name=withdrawal.name,
         amount=withdrawal.amount,
         timestamp=withdrawal.timestamp
     )
