@@ -1,5 +1,5 @@
 from modules.users.model import User
-from shared.user_response import UserResponse
+from modules.users.schema import UserResponse
 
 def to_user_response(user: User) -> UserResponse:
     return UserResponse(
